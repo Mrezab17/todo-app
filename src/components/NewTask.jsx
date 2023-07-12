@@ -2,7 +2,7 @@ import { StyledRow } from "./styled/Row.styled";
 import { StyledInput } from "./styled/Input.styled";
 import { StyledButtonPlus } from "./styled/ButtonPlus.styled";
 
-const Header = () => {
+const NewTask = () => {
   return (
     <StyledRow>
       <StyledInput type="text" placeholder="Add Your New Task" />
@@ -11,4 +11,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default NewTask;
