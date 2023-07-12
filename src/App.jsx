@@ -1,6 +1,6 @@
-import "./App.css";
 import Header from "./components/Header";
 import { StyledContainer } from "./components/styled/Container.styled";
+import { StyledContainerInternal } from "./components/styled/ContainerInternal.style";
 
 function App() {
   return (
