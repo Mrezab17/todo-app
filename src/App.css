@@ -1,7 +1,7 @@
 .app {
-  background-color: blue;
+  background-image: linear-gradient(to bottom, #40b0ff, #6f00ff);
   height: 100vh;
-  padding: 10vh 25vw 10vh 25vw;
+  padding: 10vh 30vw 10vh 30vw;
 }
 .app_wrapper {
   background-color: aliceblue;
