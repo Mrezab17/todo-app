@@ -1,4 +1,8 @@
 .app {
   background-color: blue;
-  height: 700px;
+  height: 100vh;
+  padding: 10vh 25vw 10vh 25vw;
+}
+.app_wrapper {
+  background-color: aliceblue;
 }
