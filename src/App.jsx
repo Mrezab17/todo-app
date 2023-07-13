@@ -6,19 +6,22 @@ import TaskList from "./components/TaskList";
 import TaskMonitor from "./components/TaskMonitor";
 
 import GlobalStyled from "./components/styled/Global.styled";
+import { useState } from "react";
 
 function App() {
-  let tasks = [
-    { key: 1, title: "Breakfast" },
-    { key: 2, title: "Lunch" },
-    { key: 3, title: "Dinner" },
-  ];
+  const [tasks, setTasks] = useState([]);
+  const addHandler = (task) => {
+    const newTask = { key: Math.random(), title: task };
+    let newTasks = tasks;
+    newTasks.push(newTask);
+    setTasks(newTasks);
+  };
   return (
     <StyledContainer>
       <StyledContainerInternal>
         <GlobalStyled />
         <Header />
-        <NewTask />
+        <NewTask onAdd={addHandler} />
         <TaskList list={tasks} />
         <TaskMonitor number={tasks.length} />
       </StyledContainerInternal>
