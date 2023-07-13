@@ -7,7 +7,7 @@ export const StyledButtonRemove = styled.div`
   height: 100%;
   font-size: 30px;
   float: left;
-  opacity: ${(props) => (props.hover ? 0.8 : 0)};
+  opacity: ${(props) => props.hover};
   text-align: center;
   padding-top: 1.5%;
 `;

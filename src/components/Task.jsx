@@ -25,7 +25,7 @@ const Task = (props) => {
       <StyledButtonRemove
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        hover={isHovered}
+        hover={isHovered ? 0.8 : 0}
       >
         <FontAwesomeIcon icon={faTrashCan} />
       </StyledButtonRemove>
