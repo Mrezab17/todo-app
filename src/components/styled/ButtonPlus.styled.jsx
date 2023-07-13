@@ -7,5 +7,6 @@ export const StyledButtonPlus = styled.button`
   height: 100%;
   border-radius: 5px;
   font-size: 30px;
+  opacity: 0.8;
   float: left;
 `;

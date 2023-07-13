@@ -7,5 +7,6 @@ export const StyledButtonDelete = styled.button`
   height: 100%;
   border-radius: 5px;
   font-size: 15px;
+  opacity: 0.8;
   float: left;
 `;
