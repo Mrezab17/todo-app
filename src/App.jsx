@@ -8,7 +8,11 @@ import TaskMonitor from "./components/TaskMonitor";
 import GlobalStyled from "./components/styled/Global.styled";
 
 function App() {
-  let tasks = [];
+  let tasks = [
+    { key: 1, title: "Breakfast" },
+    { key: 2, title: "Lunch" },
+    { key: 3, title: "Dinner" },
+  ];
   return (
     <StyledContainer>
       <StyledContainerInternal>
