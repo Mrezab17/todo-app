@@ -12,9 +12,7 @@ function App() {
   const [tasks, setTasks] = useState([]);
   const addHandler = (task) => {
     const newTask = { key: Math.random(), title: task };
-    let newTasks = tasks;
-    newTasks.push(newTask);
-    setTasks(newTasks);
+    setTasks([...tasks, newTask]);
   };
   const removeHandler = (key) => {
     const newTasks = tasks.filter((task) => task.key != key);
