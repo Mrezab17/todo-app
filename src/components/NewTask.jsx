@@ -5,7 +5,6 @@ import { useState } from "react";
 
 const NewTask = (props) => {
   const [newTask, setNewTask] = useState("");
-
   const changeHandler = (e) => {
     const changed = e.target.value;
     setNewTask(changed);

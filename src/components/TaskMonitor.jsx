@@ -6,7 +6,9 @@ const TaskMonitor = (props) => {
   return (
     <StyledRow>
       <StyledLabel>You Have {props.number} Pending tasks</StyledLabel>
-      <StyledButtonDelete>Clear All</StyledButtonDelete>
+      <StyledButtonDelete onClick={props.onRemoveAll}>
+        Clear All
+      </StyledButtonDelete>
     </StyledRow>
   );
 };

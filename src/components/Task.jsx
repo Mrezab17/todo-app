@@ -14,6 +14,9 @@ const Task = (props) => {
   const handleMouseLeave = () => {
     setHovered(false);
   };
+  const remove = () => {
+    props.onRemove(props.listId);
+  };
   return (
     <StyledRow>
       <StyledTittle
@@ -26,6 +29,7 @@ const Task = (props) => {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         hover={isHovered ? 0.8 : 0}
+        onClick={remove}
       >
         <FontAwesomeIcon icon={faTrashCan} />
       </StyledButtonRemove>
