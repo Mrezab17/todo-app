@@ -16,14 +16,22 @@ function App() {
     newTasks.push(newTask);
     setTasks(newTasks);
   };
+  const removeHandler = (key) => {
+    const newTasks = tasks.filter((task) => task.key != key);
+    setTasks(newTasks);
+  };
+  const removeAllHandler = () => {
+    setTasks([]);
+  };
+
   return (
     <StyledContainer>
       <StyledContainerInternal>
         <GlobalStyled />
         <Header />
         <NewTask onAdd={addHandler} />
-        <TaskList list={tasks} />
-        <TaskMonitor number={tasks.length} />
+        <TaskList list={tasks} onRemove={removeHandler} />
+        <TaskMonitor number={tasks.length} onRemoveAll={removeAllHandler} />
       </StyledContainerInternal>
     </StyledContainer>
   );
