@@ -1,5 +1,4 @@
 import Header from "./components/Header";
-import { StyledContainer } from "./components/styled/Container.styled";
 import { StyledContainerInternal } from "./components/styled/ContainerInternal.style";
 import NewTask from "./components/NewTask";
 import TaskList from "./components/TaskList";
@@ -21,9 +20,8 @@ function App() {
   const removeAllHandler = () => {
     setTasks([]);
   };
-
   return (
-    <StyledContainer>
+    <div className="h-screen color-blue">
       <StyledContainerInternal>
         <GlobalStyled />
         <Header />
@@ -31,7 +29,7 @@ function App() {
         <TaskList list={tasks} onRemove={removeHandler} />
         <TaskMonitor number={tasks.length} onRemoveAll={removeAllHandler} />
       </StyledContainerInternal>
-    </StyledContainer>
+    </div>
   );
 }
 
