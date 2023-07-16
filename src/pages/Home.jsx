@@ -5,7 +5,7 @@ import TaskMonitor from "../components/TaskMonitor";
 
 import { useState } from "react";
 
-function App() {
+function Home() {
   const [tasks, setTasks] = useState([]);
   const addHandler = (task) => {
     const newTask = { key: Math.random(), title: task };
@@ -30,4 +30,4 @@ function App() {
   );
 }
 
-export default App;
+export default Home;
