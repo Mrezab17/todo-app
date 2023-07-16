@@ -1,39 +1,37 @@
 import { useState } from "react";
 
-import { StyledRow } from "./styled/Row.styled";
-import { StyledTittle } from "./styled/Title.styled";
-import { StyledButtonRemove } from "./styled/ButtonRemove.styled";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 
 const Task = (props) => {
-  const [isHovered, setHovered] = useState(false);
+  const [isHovered, setHovered] = useState(0);
   const handleMouseEnter = () => {
-    setHovered(true);
+    setHovered(500);
   };
   const handleMouseLeave = () => {
-    setHovered(false);
+    setHovered(0);
   };
   const remove = () => {
     props.onRemove(props.listId);
   };
   return (
-    <StyledRow>
-      <StyledTittle
+    <div className="w-full h-12 items-center flex text-xl">
+      <label
+        className="bg-gray-400 w-9/12 h-full pl-5 items-center flex "
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
         {props.title}
-      </StyledTittle>
-      <StyledButtonRemove
+      </label>
+      <button
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        hover={isHovered ? 0.8 : 0}
         onClick={remove}
+        className={`bg-red-${isHovered} text-white w-12 h-full items-center justify-center text-2xl`}
       >
         <FontAwesomeIcon icon={faTrashCan} />
-      </StyledButtonRemove>
-    </StyledRow>
+      </button>
+    </div>
   );
 };
 

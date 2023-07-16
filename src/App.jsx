@@ -20,7 +20,7 @@ function App() {
   };
   return (
     <div className="h-screen w-screen bg-gradient-to-b from-cyan-500 to-blue-500 flex items-center justify-center">
-      <div className="h-3/4 w-4/12 bg-white rounded justify-center pl-5 ">
+      <div className="h-3/4 w-4/12 bg-white rounded justify-center pl-5 space-y-2">
         <Header />
         <NewTask onAdd={addHandler} />
         <TaskList list={tasks} onRemove={removeHandler} />
