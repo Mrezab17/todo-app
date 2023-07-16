@@ -1,6 +1,3 @@
-import { StyledRow } from "./styled/Row.styled";
-import { StyledInput } from "./styled/Input.styled";
-import { StyledButtonPlus } from "./styled/ButtonPlus.styled";
 import { useState } from "react";
 
 const NewTask = (props) => {
@@ -9,7 +6,6 @@ const NewTask = (props) => {
     const changed = e.target.value;
     setNewTask(changed);
   };
-
   const clickHandler = () => {
     if (newTask !== "") {
       props.onAdd(newTask);
@@ -18,8 +14,9 @@ const NewTask = (props) => {
   };
 
   return (
-    <StyledRow>
-      <StyledInput
+    <div className="w-full h-12 items-center flex space-x-0.5 text-xl">
+      <input
+        className="bg-gray w-9/12 h-full pl-5"
         type="text"
         placeholder="Add Your New Task"
         required
@@ -28,8 +25,13 @@ const NewTask = (props) => {
           changeHandler(e);
         }}
       />
-      <StyledButtonPlus onClick={clickHandler}>+</StyledButtonPlus>
-    </StyledRow>
+      <button
+        className="bg-purple-700/100 text-white w-12 h-full items-center justify-center text-2xl rounded"
+        onClick={clickHandler}
+      >
+        +
+      </button>
+    </div>
   );
 };
 
