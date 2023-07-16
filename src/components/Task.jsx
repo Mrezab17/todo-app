@@ -4,12 +4,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 
 const Task = (props) => {
-  const [isHovered, setHovered] = useState(0);
+  const [bgColor, setBgColor] = useState("bg-gray-300");
+  const [txtColor, setTxtColor] = useState("text-gray-300");
   const handleMouseEnter = () => {
-    setHovered(500);
+    setBgColor("bg-red-500");
+    setTxtColor("text-white");
   };
   const handleMouseLeave = () => {
-    setHovered(0);
+    setBgColor("bg-gray-300");
+    setTxtColor("text-gray-300");
   };
   const remove = () => {
     props.onRemove(props.listId);
@@ -17,7 +20,7 @@ const Task = (props) => {
   return (
     <div className="w-full h-12 items-center flex text-xl">
       <label
-        className="bg-gray-400 w-9/12 h-full pl-5 items-center flex "
+        className="bg-gray-300 w-9/12 h-full pl-5 items-center flex "
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
@@ -27,7 +30,9 @@ const Task = (props) => {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         onClick={remove}
-        className={`bg-red-${isHovered} text-white w-12 h-full items-center justify-center text-2xl`}
+        className={`${
+          bgColor + " " + txtColor
+        } w-12 h-full items-center justify-center text-2xl`}
       >
         <FontAwesomeIcon icon={faTrashCan} />
       </button>
