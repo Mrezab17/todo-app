@@ -538,6 +538,10 @@ video {
   display: flex;
 }
 
+.h-20 {
+  height: 5rem;
+}
+
 .h-3\/4 {
   height: 75%;
 }
@@ -550,8 +554,20 @@ video {
   width: 33.333333%;
 }
 
+.w-9\/12 {
+  width: 75%;
+}
+
 .w-screen {
   width: 100vw;
+}
+
+.min-w-full {
+  min-width: 100%;
+}
+
+.min-w-\[50\%\] {
+  min-width: 50%;
 }
 
 .items-center {
@@ -583,6 +599,15 @@ video {
 
 .to-blue-500 {
   --tw-gradient-to: #3b82f6 var(--tw-gradient-to-position);
+}
+
+.pl-5 {
+  padding-left: 1.25rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 
 .filter {

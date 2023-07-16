@@ -1,10 +1,5 @@
-import { StyledRow } from "./styled/Row.styled";
 const Header = () => {
-  return (
-    <StyledRow>
-      <h1>Todo App</h1>
-    </StyledRow>
-  );
+  return <div className="w-9/12 h-20 items-center flex text-xl">Todo App</div>;
 };
 
 export default Header;

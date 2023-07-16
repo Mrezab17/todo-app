@@ -1,10 +1,8 @@
 import Header from "./components/Header";
-import { StyledContainerInternal } from "./components/styled/ContainerInternal.style";
 import NewTask from "./components/NewTask";
 import TaskList from "./components/TaskList";
 import TaskMonitor from "./components/TaskMonitor";
 
-import GlobalStyled from "./components/styled/Global.styled";
 import { useState } from "react";
 
 function App() {
@@ -22,8 +20,7 @@ function App() {
   };
   return (
     <div className="h-screen w-screen bg-gradient-to-b from-cyan-500 to-blue-500 flex items-center justify-center">
-      <div className="h-3/4 w-4/12 bg-white rounded justify-center">
-        <GlobalStyled />
+      <div className="h-3/4 w-4/12 bg-white rounded justify-center pl-5 ">
         <Header />
         <NewTask onAdd={addHandler} />
         <TaskList list={tasks} onRemove={removeHandler} />
