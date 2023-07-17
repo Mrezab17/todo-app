@@ -36,9 +36,9 @@ const Form = () => {
 
     email: Yup.string().email("Invalid Email").required("Email is required"),
 
-    id: Yup.string()
+    phone: Yup.string()
       .required("Phone Number is required")
-      .matches(/^([0|\+[0-9]{1,5})?([0-9]{11})$/, "Invalid ID"),
+      .matches(/^([0|\+[0-9]{1,5})?([0-9]{11})$/, "Invalid Phone Number"),
   });
 
   const submitForm = (values) => {
