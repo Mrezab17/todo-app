@@ -566,6 +566,10 @@ video {
   float: right;
 }
 
+.float-left {
+  float: left;
+}
+
 .block {
   display: block;
 }

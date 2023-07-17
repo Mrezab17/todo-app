@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Formik } from "formik";
+
+import { Formik, Field, ErrorMessage } from "formik";
+
+import * as Yup from "yup";
 
 const Form = () => {
   const initialValues = {
@@ -10,41 +13,31 @@ const Form = () => {
     phone: "",
   };
 
-  const validate = (values) => {
-    let errors = {};
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-    const regex_num = /^\d+$/;
-    const regex_phone = /^([0|\+[0-9]{1,5})?([0-9]{11})$/;
+  const RegisterSchema = Yup.object().shape({
+    name: Yup.string()
+      .required("Name is required")
+      .matches(
+        /[abcdefghijklmnopqrstuvwxyz]{3,}/,
+        "Invalid Name(Too Short or Including numbers)"
+      ),
 
-    if (!values.email) {
-      errors.email = "Email is required";
-    } else if (!regex.test(values.email)) {
-      errors.email = "Invalid Email";
-    }
-    if (!values.phone) {
-      errors.phone = "Phone Number is required";
-    } else if (!regex_phone.test(values.phone)) {
-      console.log;
-      errors.phone = "Phone Number not Valid";
-    }
-    if (!values.name) {
-      errors.name = "Name is required";
-    } else if (values.name.length < 3) {
-      errors.name = "Name too short";
-    }
-    if (!values.id) {
-      errors.id = "ID is required";
-    } else if (values.id.length != 10 || !regex_num.test(values.id)) {
-      errors.id = "ID not Valid";
-    }
-    if (!values.lname) {
-      errors.lname = "Last Name is required";
-    } else if (values.lname.length < 3) {
-      errors.lname = "Last Name too short";
-    }
+    lname: Yup.string()
+      .required("Last Name is required")
+      .matches(
+        /[abcdefghijklmnopqrstuvwxyz]{3,}/,
+        "Invalid Last Name(Too Short or Including numbers)"
+      ),
 
-    return errors;
-  };
+    id: Yup.string()
+      .required("ID is required")
+      .matches(/^[0-9]{10}$/, "Invalid ID"),
+
+    email: Yup.string().email("Invalid Email").required("Email is required"),
+
+    id: Yup.string()
+      .required("Phone Number is required")
+      .matches(/^([0|\+[0-9]{1,5})?([0-9]{11})$/, "Invalid ID"),
+  });
 
   const submitForm = (values) => {
     console.log(values);
@@ -52,8 +45,8 @@ const Form = () => {
   return (
     <Formik
       initialValues={initialValues}
-      validate={validate}
       onSubmit={submitForm}
+      validationSchema={RegisterSchema}
     >
       {(formik) => {
         const {
@@ -97,9 +90,9 @@ const Form = () => {
                 }`}
               />
             </div>
-            <div className="w-full row-span-1 h-10 space-x-0 ">
+            <div className="w-full row-span-1 h-16 space-x-0 bg-gray-300">
               {errors.name && touched.name && (
-                <div className=" w-5/12 pl-3 text-red-600 inline-block">
+                <div className=" w-5/12 pl-3 text-red-600 float-left inline-block">
                   {errors.name}
                 </div>
               )}
@@ -133,7 +126,7 @@ const Form = () => {
                 className="bg-white basis-4/12 pl-3 rounded "
               />
             </div>
-            <div className="w-full row-span-1 h-10 space-x-0 ">
+            <div className="w-full row-span-1 h-16 space-x-0 ">
               {errors.id && touched.id && (
                 <div className=" w-5/12 text-red-600 float-right inline-block ">
                   {errors.id}
@@ -162,7 +155,7 @@ const Form = () => {
                 className="bg-white basis-5/12 pl-3 rounded "
               />
             </div>
-            <div className="w-full row-span-1 h-10 space-x-0 ">
+            <div className="w-full row-span-1 h-16 space-x-0 ">
               {errors.phone && touched.phone && (
                 <div className=" w-6/12 text-red-600  inline-block ">
                   {errors.phone}
